@@ -1,0 +1,239 @@
+# MCD-01B-01 — Roller Blinds Product Engine Specification
+
+**Document ID:** MCD-01B-01
+**Document Title:** Roller Blinds Product Engine Specification
+**Status:** Draft
+**Version:** 1.0
+
+## Dependencies
+- MCD-00 — Executive Charter
+- MCD-00A — Project Development Standards
+- MCD-01A — Sales MVP Product Engine Architecture (v1.1)
+
+## Purpose
+
+This document defines the Roller Blind implementation of the Sales MVP Product Engine.
+
+It implements the architecture defined in MCD-01A. It shall not redefine any Shared Platform Service. Where shared functionality exists, this document references MCD-01A and defines only the Roller-specific implementation.
+
+## 1. Product Scope
+
+**Included**
+- Standard Roller Blind
+- Cassette Roller Blind
+
+**Excluded** — the following are not separate Roller products:
+- Blackout Roller
+- Electric Roller
+- Screen Roller
+- Dimout Roller
+
+These are implemented through Material/Fabric attributes or Configuration as defined in MCD-01A.
+
+**Future**
+- Double Roller
+- Linked Roller
+- External Roller
+- ZIP Screen
+
+## 2. Construction Variants
+
+**Standard Roller Blind** — open roller system.
+**Cassette Roller Blind** — fully enclosed cassette system.
+
+Construction differences only. Material selection shall not create additional construction variants.
+
+## 3. Shared Service Profile
+
+| Shared Platform Service | Status | Roller Implementation |
+|---|---|---|
+| Survey Engine | Configured | Standard survey with Roller-specific questions |
+| Measurement Engine | Configured | Uses shared measurements with Roller parameters |
+| Validation Engine | Configured | Roller validation rules and compatibility data |
+| Operation Engine | Configured | Manual and Manual/Motorised (Advisor Selection) |
+| Motor Engine | Configured | Advisor selects compatible motors supported by supplier |
+| Child Safety Engine | Configured | Roller chain safety implementation |
+| Pricing Engine | Configured | Roller pricing inputs |
+| Accessory Engine | Configured | Roller accessory groups |
+| Supplier Capability Engine | Configured | Uses supplier capability data |
+| Recommendation Engine | Configured | Roller recommendation rules |
+| Document Generation Engine | Full | Standard implementation |
+| Audit & Compliance Engine | Full | Standard implementation |
+
+This profile complies with MCD-01A Section 6 and Section 7.
+
+## 4. Survey Requirements
+
+The shared Survey Engine shall be used. Roller-specific questions include:
+- Construction Variant
+- Recess / Exact Fit
+- Window Width
+- Window Drop
+- Control Side
+- Installation Height
+- Roll Direction
+- Cassette Required
+- Fascia Required
+- Bracket Type
+- Fabric Selection
+- Colourway
+- Operation Method
+- Motor Supplier (where applicable)
+- Accessories
+
+No survey logic shall be duplicated.
+
+## 5. Measurement Rules
+
+Measurement behaviour is provided by the shared Measurement Engine. Roller-specific rules include:
+- Width
+- Drop
+- Recess measurement
+- Exact measurement
+- Reverse roll clearance
+- Window handle clearance
+- Cassette clearance
+- Bracket projection
+- Extension bracket requirements
+- Tube size implications
+
+Supplier maximum dimensions are defined by Supplier Capability documents.
+
+## 6. Validation Rules
+
+The shared Validation Engine performs validation. Roller-specific validation includes:
+- Minimum width
+- Maximum width
+- Maximum drop
+- Maximum area
+- Tube compatibility
+- Bracket compatibility
+- Cassette compatibility
+- Motor compatibility
+- Fabric compatibility
+- Weight limits
+
+Supplier-specific values are not defined here.
+
+## 7. Material & Fabric
+
+Material selection is independent from Construction Variant. Customer-facing material labels include:
+- Light Filtering
+- Dimout
+- Blackout
+- Screen
+- Fire Retardant (FR)
+- Moisture Resistant
+- Sustainable
+
+These labels are Material/Fabric attributes. They shall never create Product Variants.
+
+## 8. Operation
+
+Operation behaviour is defined by the shared Operation Engine.
+
+**Roller supports:**
+- Manual
+- Manual or Motorised (Advisor Selection)
+
+**Roller does not support:**
+- Manual or Motorised (Factory Selection)
+- Motorised Only
+
+Operation modes shall not be redefined.
+
+## 9. Motor Implementation
+
+Motor compatibility is determined by the shared Motor Engine. Supported motor suppliers are determined by Supplier Capability. Typical examples include:
+- Somfy
+- Decora Stelor
+- Louvolite
+
+Motor selection depends upon: Supplier, blind dimensions, blind weight, tube size, customer requirements, power availability.
+
+Motor compatibility shall not be hard-coded.
+
+## 10. Accessories
+
+The shared Accessory Engine manages compatibility. Roller accessory groups include:
+- Universal Brackets
+- Top Fix Brackets
+- Face Fix Brackets
+- Extension Brackets
+- Cassette
+- Fascia
+- Bottom Bars
+- Side Channels
+- Chain Tensioners
+- Child Safety Devices
+- Remote Controls
+- Wall Switches
+- Smart Hubs
+- Solar Panels
+- Chargers
+- Battery Packs
+
+Supplier documents determine availability.
+
+## 11. Child Safety
+
+The shared Child Safety Engine implements BS EN 13120 compliance. Roller-specific implementation includes:
+- Chain safety devices
+- Chain lengths
+- Installation height
+- Breakaway devices
+- Safety warnings
+- Customer refusal workflow
+
+Legislation shall not be duplicated.
+
+## 12. Pricing Inputs
+
+Pricing calculations are provided by the shared Pricing Engine. Roller-specific pricing parameters include:
+- Width
+- Drop
+- Fabric Collection
+- Fabric Band
+- Construction Variant
+- Cassette
+- Fascia
+- Bottom Bar
+- Motor
+- Brackets
+- Accessories
+- Supplier
+
+Commercial pricing behaviour is defined by the shared Pricing Engine.
+
+## 13. Recommendation Rules
+
+Recommendations are provided by the shared Recommendation Engine. Roller-specific recommendations may include:
+- Blackout fabric for bedrooms
+- Screen fabric for offices
+- Cassette systems where aesthetics require
+- Reverse roll where window handles interfere
+- Battery motors where mains power is unavailable
+- Mains motors for frequent operation
+- Alternative suppliers where lead time or capability is improved
+
+Recommendations shall explain the reason for the recommendation. Recommendations shall never override advisor decisions.
+
+## 14. Supplier Capability Requirements
+
+Supplier documents shall define: available constructions, fabric collections, colourways, maximum dimensions, tube availability, motor compatibility, cassette availability, accessories, manufacturing limits, lead times, discontinued products, product availability.
+
+Supplier capability shall remain independent of Product Engine behaviour.
+
+## 15. Future Enhancements
+
+Reserved for future functionality including: linked blinds, double roller systems, smart sensor integration, Matter compatibility, AI optimisation, automated fabric recommendations.
+
+## 16. Decision Register
+
+Maintained in accordance with MCD-00A.
+
+## 17. Version History
+
+| Version | Summary |
+|---|---|
+| 1.0 Draft | Initial Roller Blind implementation based on approved MCD-01A architecture. |
