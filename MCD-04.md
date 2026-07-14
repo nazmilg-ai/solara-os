@@ -9,7 +9,7 @@ Last Updated: 14 July 2026 (v0.1)
 - MCD-00A — Project Development Standards (not present in repository at time of writing — see Decision Register)
 - MCD-01A — Sales MVP Product Engine Architecture (v1.5, Approved Draft Baseline)
 - MCD-01B-01 — Roller Blinds Product Engine Specification (v1.5, Approved Draft Baseline – Product Specification)
-- MCD-01B-02 — Vertical Blinds Product Engine Specification (Draft v1.2 – Product Specification)
+- MCD-01B-02 — Vertical Blinds Product Engine Specification (v1.3, Approved Draft Baseline – Product Specification)
 
 This is a new document. It is not an extension of MCD-01A, MCD-01B-01, or MCD-01B-02, and none of those documents are modified by its introduction.
 
@@ -118,3 +118,4 @@ Maintained in accordance with MCD-00A conventions as established in MCD-01B-01 �
 | Version | Summary |
 |---|---|
 | 0.1 Draft Skeleton | Initial MCD-04 document architecture established per the design brief (claude-code-brief-MCD-04.md): Purpose, Scope (with the Constraint 2 exception stated explicitly), Relationship to MCD-01A/MCD-01B-xx, Governance, Record Structure (seven fields), and Document Organisation (product-architecture-first tree). Populated exactly one record — Vertical Blinds → Vogue → Motorised Tilt Operation — matching the resolved MCD-01B-02 §23 Decision Register entry, including the confirmed 3m/200mm limits and the supplier-capability-vs-Solara-restriction distinction on louvre width (89mm Solara restriction vs. supplier support for both 89mm and 127mm). All other Construction Variants and product families left as empty Future Entries. MCD-01A, MCD-01B-01, and MCD-01B-02 were not modified. |
+| 0.1 Draft Skeleton | Corrected the MCD-01B-02 dependency reference from Draft v1.2 to v1.3 Approved Draft Baseline, reflecting its promotion after this document was first drafted. |
