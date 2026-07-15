@@ -145,7 +145,7 @@ Slimline, Cruze, Nova, Curved, and Sloping have no populated records yet — Fut
 - **Evidence:** Primary supplier technical documentation.
 - **Source Reference:** Decora, "SPEC46 - Roman and Curtain Specification - Issue V15.pdf".
 - **Validation Status:** Confirmed.
-- **Revision History:** 14 Jul 2026 — record created during MCD-01B-03 breakaway-note review. 14 Jul 2026 — source attribution added, chain-length formula confirmed shared with No-Drill/Cassette, rod and cord count tables added, per MCD-04 correction brief.
+- **Revision History:** 14 Jul 2026 — record created during MCD-01B-03 breakaway-note review. 14 Jul 2026 — source attribution added, chain-length formula confirmed shared with No-Drill/Cassette, rod and cord count tables added, per MCD-04 correction brief. 14 Jul 2026 — provenance of these dimensional limits audited: traced to claude-code-brief-MCD-01B-03-breakaway-note.md, and independently confirmed by Nazmil Ghany as genuine content from Decora SPEC46 (not merely working-context assertion) — Source Reference retained as originally recorded.
 
 ### 7.4 Roman Blinds → Breakaway Control
 
@@ -161,7 +161,7 @@ Slimline, Cruze, Nova, Curved, and Sloping have no populated records yet — Fut
 - **Evidence:** Primary supplier technical documentation.
 - **Source Reference:** Decora, "SPEC46 - Roman and Curtain Specification - Issue V15.pdf".
 - **Validation Status:** Confirmed.
-- **Revision History:** 14 Jul 2026 — record created during MCD-01B-03 breakaway-note review. 14 Jul 2026 — source attribution added, cord count table added, per MCD-04 correction brief.
+- **Revision History:** 14 Jul 2026 — record created during MCD-01B-03 breakaway-note review. 14 Jul 2026 — source attribution added, cord count table added, per MCD-04 correction brief. 14 Jul 2026 — provenance of these dimensional limits audited: traced to claude-code-brief-MCD-01B-03-breakaway-note.md, and independently confirmed by Nazmil Ghany as genuine content from Decora SPEC46 (not merely working-context assertion) — Source Reference retained as originally recorded.
 
 ### 7.5 Roman Blinds → No-Drill Headrail
 
