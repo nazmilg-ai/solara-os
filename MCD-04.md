@@ -1,8 +1,8 @@
 Document ID: MCD-04
 Document Title: Product Library & Supplier Management
 Status: Draft Skeleton
-Version: 0.8
-Last Updated: 26 July 2026 (v0.8)
+Version: 0.9
+Last Updated: 1 August 2026 (v0.9)
 
 ## Dependencies
 - MCD-00 — Executive Charter
@@ -60,7 +60,7 @@ Each Structured Technical Value entry contains:
 - **Metric** — the name of the fact being recorded (e.g. "Material Weight," "Control Chain Length," "Rod Count").
 - **Value** — the numeric or textual value, where a single fixed value applies.
 - **Unit** — the unit of measure (e.g. g/m², mm, count, Nm, V).
-- **Value Type** — one of: Weight, Length, Area, Count, Torque, Voltage, Time, Percentage, Boolean, Text Rule. Exists so automated interpretation does not have to infer type from the Metric name alone.
+- **Value Type** — one of: Weight, Length, Area, Count, Torque, Voltage, Time, Percentage, Boolean, Text Rule, **Currency**. Exists so automated interpretation does not have to infer type from the Metric name alone. **Currency added as a named Value Type for the first time in the Day & Night pricing population pass (§7.16–§7.19)** — pricing had not previously been represented in this schema; formalised here rather than force-fitted into Text Rule, matching the precedent already set when Quoting Status was formalised as a named field during the Metal Venetian pass. All Currency values in this document are GBP unless a Notes field states otherwise.
 - **Basis** — one of: Fixed, Per Square Metre, Per Metre Width, Per Metre Drop, Per Component, Per Fold, Per Lift Cord, By Drop Band, By Width Band, Formula, Percentage of Calculated Value, Supplier-Stated Maximum, Construction-Specific.
 - **Applies To** — the construction, product family, or component the value applies to.
 - **Calculation Rule** — the formula or method, where Basis = Formula or a similarly derived basis.
@@ -119,6 +119,15 @@ Supplier Capability Records
 ├── Frame-Mounted and Window-Mounted Blind Systems
 │     └── Side-Guide Window-Mounted System
 │           └── Pleated & Cellular implementation (exact supplier system, dimensional limits, frame/bead/gasket rules, fixing routes, fabric exclusion)   [partially populated — see §7.15; Aluminium Venetian implementation reserved for a later work package, not populated here]
+│
+├── Day & Night Blinds (MCD-01B-09)
+│     ├── Decora
+│     │     ├── Blind-Body Pricing — Standard (Open/Closed), Semi-Cassette 40mm, Semi-Cassette 70mm (fabric insert)   [populated — see §7.16; Arena intentionally excluded, not price-competitive]
+│     │     └── Motor & Accessory Component Pricing — Stelor, Somfy   [partially populated — see §7.17; Somfy Situo/Smoove/TaHoma remote range not supplied]
+│     └── Beverley
+│           ├── Blind-Body Pricing — Standard Day & Night, Cassette Day & Night — and Fabric Bands   [partially populated — see §7.18; band pricing grids not supplied to Claude Code]
+│           └── Motor & Accessory Component Pricing   [populated — see §7.19; no motor technical specification supplied for any component]
+│     Day & Night Blinds → General (cross-supplier facts: no total-blackout option, fabric-join policy, reverse-roll non-concept)   [populated — see §7.20]
 │
 └── Future Entries
       ├── Roller Blinds
@@ -427,6 +436,245 @@ The following items are recorded as **Evidence gathered — Extraction completed
   - 20 Jul 2026 — record created per `claude-code-brief-MCD-01B-08A.md` §23, alongside the new MCD-01B-08A.md product specification. Aluminium Venetian implementation under this same supplier system explicitly not populated here, reserved for MCD-01B-08B.
   - 26 Jul 2026 — **supplier-record evidence enrichment**, per `claude-code-brief-MCD-04-08A-enrichment.md`. Added cell/pleat sizes, manufacturing tolerance, recess width deduction (width only), fixing-route codes, bracket/component codes, handle codes and quantity rule, end-cap codes, profile/end-cap/handle colour-matching rules and RAL references, and a precise source citation for the Bowery fabric exclusion — all from `SPEC70 Cruze Pleated Cellular Specification - Issue V7 - 17.06.2026.pdf`. Added explicit per-field corroborating citations from `MEAS005 - Cruze Pleated Cellular FITtoFRAME Measuring Instructions - Issue V2 - 02.07.2025 (1).pdf` for the measurement method, dimensional limits and linked restrictions, handle clearance, and the 2mm square-profile gasket rule (all previously recorded from the original brief's narrative; now independently corroborated by a second document). Recorded the V4 measuring-instructions document's status as "not located in the available SharePoint source library after repeated targeted searches," per the enrichment brief's explicit instruction, replacing the earlier "not accessible" phrasing. Motorisation, chamfered/ovolo-curved bead eligibility, and maximum gasket thickness/projection deliberately kept open per the enrichment brief's explicit instruction, not resolved by inference. This is a supplier-record evidence enrichment only — no status promotion, no MCD-01B-08A.md change, no architectural change. MCD-01B-08A.md and all other MCD documents were not modified.
 
+### 7.16 Day & Night Blinds → Decora → Blind-Body Pricing
+
+**Scope note:** Arena is intentionally excluded from this and all Day & Night pricing work — not price-competitive, per explicit instruction. Not researched, not populated, not a gap.
+
+**Naming note:** Decora refers to this product internally as **Softshade** (MCD-01B-09 §7). The three commercially named varieties populated here — **Standard**, **Semi-Cassette 40mm**, and **Semi-Cassette 70mm (with fabric insert)** — are mapped to source pricing files as follows, per this task's explicit instruction:
+
+- **Standard** ← `prime-softshade-open-system_2026-07-07-151219.xlsx` (Open configuration) and `prime-softshade-closed-system_2026-07-07-151219.xlsx` (Closed configuration), corresponding to MCD-01B-09 §7.1's "Decora Essentials system," Open cassette and Closed cassette.
+- **Semi-Cassette 40mm** ← `prime-cruze-fascia-softshade-40mm-fascia_2026-07-07-151219.xlsx`.
+- **Semi-Cassette 70mm (with fabric insert)** ← `prime-cruze-fascia-softshade-70mm-fascia_2026-07-07-151219.xlsx`. The "fabric insert" characteristic matches MCD-01B-09 §7.2's already-verified "fabric insert fascia" field for the 70mm/Cruze fascia system.
+
+**Unmapped file, flagged rather than silently assigned:** `premier-softshade_2026-07-07-151219.xlsx` ("Premier Softshade," one price band, width 300–2,500mm, drop 1,000–3,000mm) is **not** mapped to any of the three named varieties above — the instruction naming three varieties leaves no slot for it, and this document's own prior extraction report (`mcd-04-decora-softshade-roller-pricing-report.md`, branch `claude/mcd-04-decora-softshade-roller-pricing`) already flagged its relationship to the Semi-Cassette files as unresolved. **Observation offered as a lead, not a finding:** this file's drop maximum (3,000mm) matches SPEC75's stated general system drop maximum (see "Technical basis — SPEC75," below) exactly, whereas both Semi-Cassette 40mm/70mm files cap at 2,500mm drop — suggesting "Premier Softshade" may be the closer commercial counterpart to the SPEC75-governed general fascia system, and "Semi-Cassette 40mm/70mm" may be a narrower, separate tier. Not acted on; recorded for review.
+
+**Pricing basis:** every figure below is the `DISCOUNTED COST` value from its source file — Solara's actual wholesale cost after the account-level discount shown in each file's Summary sheet (35% for every Softshade file). The `SUGGESTED SELL PRICE` columns in these files are **not used**: on inspection of the underlying formulas (not just the displayed values), they are a live Solara mark-up calculator (editable VAT/Mark-Up/Additional-Charge inputs, all still at template defaults in every file) with stale, incorrect cached output (every cell currently displays `0`) — not an independent supplier-published price. See the source-branch report for the full analysis.
+
+**Grid transcription policy:** full per-mm price grids (up to 23 width points × 16 drop points × 3 fabric bands per system) are not transcribed cell-by-cell into this governance document, consistent with this project's standing practice for large supplier tables (e.g. Roman's ~100-row fabric range, §7.3–§7.7). Each band below is recorded by its structure (width/drop range, increment, fabric collection) plus its four corner prices (min width/min drop, max width/min drop, min width/max drop, max width/max drop) as verification anchors. The full grid is authoritative in the named source file and should be ingested programmatically from it by the pricing engine, not retyped from this record.
+
+#### Standard — Open configuration (`prime-softshade-open-system_2026-07-07-151219.xlsx`)
+
+Width 300–2,300mm, Drop 1,000–2,300mm, 100mm increments, both axes. No blank/exclusion cells in the priced grid.
+
+| Price Band | Fabric collection | £ @ 300×1000 | £ @ 2300×1000 | £ @ 300×2300 | £ @ 2300×2300 |
+|---|---|---|---|---|---|
+| A | Luna | 28.41 | 96.92 | 32.23 | 122.44 |
+| B | Rift | 34.09 | 116.31 | 38.66 | 146.94 |
+| D | Kanza, Nobis | 51.12 | 174.44 | 58.01 | 220.40 |
+
+- Structured Technical Value — Metric: Wholesale Blind Price (corner anchor); Value: as table above; Unit: £; Value Type: Currency; Basis: Construction-Specific; Applies To: Decora Standard, Open configuration; Evidence Status: Supplier Confirmed; Source Reference: `prime-softshade-open-system_2026-07-07-151219.xlsx`, sheet `Price Calculator Prime Softshad`.
+
+**Conflict with MCD-01B-09, flagged not resolved:** this pricing grid prices Open configuration up to 2,300mm drop; MCD-01B-09 §7.1 states the Open cassette's technical maximum drop as **1,900mm**. Per this task's own instruction, MCD-01B-09.md is not modified to reconcile this.
+
+#### Standard — Closed configuration (`prime-softshade-closed-system_2026-07-07-151219.xlsx`)
+
+Width 300–2,300mm, Drop 1,000–2,300mm, 100mm increments, both axes. No blank/exclusion cells.
+
+| Price Band | Fabric collection | £ @ 300×1000 | £ @ 2300×1000 | £ @ 300×2300 | £ @ 2300×2300 |
+|---|---|---|---|---|---|
+| A | Luna | 31.57 | 107.69 | 35.81 | 136.05 |
+| B | Rift | 37.87 | 129.24 | 42.95 | 163.27 |
+| D | Kanza, Nobis | 56.81 | 193.82 | 64.45 | 244.89 |
+
+- Structured Technical Value — Metric: Wholesale Blind Price (corner anchor); Value: as table above; Unit: £; Value Type: Currency; Basis: Construction-Specific; Applies To: Decora Standard, Closed configuration; Evidence Status: Supplier Confirmed; Source Reference: `prime-softshade-closed-system_2026-07-07-151219.xlsx`, sheet `Price Calculator Prime Softshad`.
+
+Closed configuration's 2,300mm drop maximum matches MCD-01B-09 §7.1's stated Closed cassette technical maximum exactly — no conflict.
+
+#### Semi-Cassette 40mm (`prime-cruze-fascia-softshade-40mm-fascia_2026-07-07-151219.xlsx`)
+
+Width 300–2,500mm, Drop 1,000–2,500mm, 100mm increments, both axes. No blank/exclusion cells.
+
+**Fabric collection names are not given for this system** — the source file's fabric-name row exists as a formatted merged cell for every price band but contains no value (checked directly against the merged-cell range, not inferred from a missing label). Recorded as Not Provided.
+
+| Price Band | Fabric collection | £ @ 300×1000 | £ @ 2500×1000 | £ @ 300×2500 | £ @ 2500×2500 |
+|---|---|---|---|---|---|
+| A | Not Provided | 33.12 | 122.15 | 37.91 | 153.76 |
+| B | Not Provided | 38.47 | 141.64 | 44.23 | 179.56 |
+| D | Not Provided | 54.55 | 200.13 | 63.18 | 257.02 |
+
+- Structured Technical Value — Metric: Wholesale Blind Price (corner anchor); Value: as table above; Unit: £; Value Type: Currency; Basis: Construction-Specific; Applies To: Decora Semi-Cassette 40mm; Evidence Status: Supplier Confirmed; Source Reference: `prime-cruze-fascia-softshade-40mm-fascia_2026-07-07-151219.xlsx`, sheet `Price Calculator Prime Cruze Fa`.
+
+#### Semi-Cassette 70mm, with fabric insert (`prime-cruze-fascia-softshade-70mm-fascia_2026-07-07-151219.xlsx`)
+
+Width 300–2,500mm, Drop 1,000–2,500mm, 100mm increments, both axes. No blank/exclusion cells. Fabric collection names not given, same situation as the 40mm variant above.
+
+| Price Band | Fabric collection | £ @ 300×1000 | £ @ 2500×1000 | £ @ 300×2500 | £ @ 2500×2500 |
+|---|---|---|---|---|---|
+| A | Not Provided | 34.69 | 128.33 | 39.48 | 159.94 |
+| B | Not Provided | 40.04 | 147.82 | 45.80 | 185.74 |
+| D | Not Provided | 56.12 | 206.31 | 64.75 | 263.20 |
+
+- Structured Technical Value — Metric: Wholesale Blind Price (corner anchor); Value: as table above; Unit: £; Value Type: Currency; Basis: Construction-Specific; Applies To: Decora Semi-Cassette 70mm (fabric insert); Evidence Status: Supplier Confirmed; Source Reference: `prime-cruze-fascia-softshade-70mm-fascia_2026-07-07-151219.xlsx`, sheet `Price Calculator Prime Cruze Fa`.
+
+Consistently higher than the 40mm variant at every matching width/drop/band combination — internally consistent with 70mm being the larger/heavier hardware option, not a conflict.
+
+**Conflict with MCD-01B-09, flagged not resolved (applies to both Semi-Cassette 40mm and 70mm):** both pricing grids cap at 2,500mm drop; MCD-01B-09 §7.2 states the fascia system's general verified maximum drop as 3,000mm. See the "Premier Softshade" observation above — this may indicate Semi-Cassette 40mm/70mm and the general fascia system in §7.2 are not the same commercial product, but this is not resolved here.
+
+#### Technical basis — SPEC75 (Premier Softshade)
+
+This task's instruction supplies a set of technical figures attributed to **SPEC75 (Premier Softshade)** — a source document, not one of the pricing files above. Given the "Premier Softshade" naming and the drop-maximum match noted immediately above, this is most likely the technical specification behind the `premier-softshade_2026-07-07-151219.xlsx` pricing file specifically (and, by extension, the general Cruze fascia system MCD-01B-09 §7.2 already describes) rather than the Semi-Cassette 40mm/70mm files — but this is not asserted as confirmed, for the same reason the file itself is left unmapped above.
+
+- Child safety: minimum control length 150mm; floor deduction 1,500mm; child-safety device — D-Clip Chain Tidy.
+- System dimensions: width 200–2,500mm; drop 200–3,000mm.
+- Tolerance: ±3–5mm.
+
+- Structured Technical Value — Metric: Minimum Control Length; Value: 150; Unit: mm; Value Type: Length; Basis: Fixed; Applies To: Decora Softshade (SPEC75/Premier Softshade); Evidence Status: Supplier Confirmed; Source Reference: SPEC75 (Premier Softshade) — exact document title/issue not supplied.
+- Structured Technical Value — Metric: Floor Deduction; Value: 1500; Unit: mm; Value Type: Length; Basis: Fixed; Applies To: same; Evidence Status: Supplier Confirmed; Source Reference: SPEC75 (Premier Softshade).
+- Structured Technical Value — Metric: Child-Safety Device; Value: D-Clip Chain Tidy; Value Type: Text Rule; Basis: Fixed; Applies To: same; Evidence Status: Supplier Confirmed; Source Reference: SPEC75 (Premier Softshade).
+- Structured Technical Value — Metric: Finished Width Range; Unit: mm; Value Type: Length; Basis: Construction-Specific; Minimum: 200; Maximum: 2500; Applies To: same; Evidence Status: Supplier Confirmed; Source Reference: SPEC75 (Premier Softshade). Matches MCD-01B-09 §7.2's already-recorded width range exactly.
+- Structured Technical Value — Metric: Finished Drop Range; Unit: mm; Value Type: Length; Basis: Construction-Specific; Minimum: 200; Maximum: 3000; Applies To: same; Evidence Status: Supplier Confirmed; Source Reference: SPEC75 (Premier Softshade). **Conflicts with MCD-01B-09 §7.2, flagged not resolved:** §7.2 states the minimum drop as 500mm; this SPEC75-attributed figure states 200mm. The maximum (3,000mm) matches §7.2 exactly. MCD-01B-09.md is not edited to reconcile the minimum, per this task's explicit scope restriction.
+- Structured Technical Value — Metric: Manufacturing Tolerance; Value: ±3–5; Unit: mm; Value Type: Length; Basis: Fixed; Applies To: same; Evidence Status: Supplier Confirmed; Source Reference: SPEC75 (Premier Softshade). Matches MCD-01B-09 §7.2's already-recorded "approximately ±3–5mm" exactly.
+
+- **Capability:** Decora Day & Night (Softshade) blind-body wholesale pricing, three named varieties, three fabric price bands each (except Semi-Cassette which shares the A/B/D band structure with Standard) — plus SPEC75-sourced child-safety and dimensional technical rules.
+- **Business Rule:** Matches MCD-01B-09 §22 — supplier-specific base blind grid and fabric price band, kept separate from cassette/fascia and other surcharges (none found in these files) and from Solara mark-up/customer-selling-price logic (§22a; see also this record's pricing-basis note above).
+- **Evidence:** Direct workbook inspection (openpyxl, structural inspection of merged cells and explicit WIDTH/DROP labels, not flattened text extraction) of the five named source files, cross-checked against the prior extraction report on branch `claude/mcd-04-decora-softshade-roller-pricing` (`mcd-04-decora-softshade-roller-pricing-report.md`).
+- **Source References:** `prime-softshade-open-system_2026-07-07-151219.xlsx`; `prime-softshade-closed-system_2026-07-07-151219.xlsx`; `prime-cruze-fascia-softshade-40mm-fascia_2026-07-07-151219.xlsx`; `prime-cruze-fascia-softshade-70mm-fascia_2026-07-07-151219.xlsx`. `premier-softshade_2026-07-07-151219.xlsx` reviewed but not used as a source for any of the three named varieties (see unmapped-file note above).
+- **Validation Status:** Confirmed (all four corner prices per band, per system; width/drop ranges and increments; discount basis); Not Provided (fabric collection names for Semi-Cassette 40mm/70mm; the full per-mm grid, deliberately not transcribed — see grid transcription policy above; "Premier Softshade"'s relationship to Semi-Cassette 40mm/70mm).
+- **Revision History:** 1 Aug 2026 — record created per this task's Decora/Beverley Day & Night pricing instruction, alongside §7.17–§7.20. MCD-01B-09.md not modified.
+
+### 7.17 Day & Night Blinds → Decora → Motor & Accessory Component Pricing
+
+Universal component-based motorisation architecture per MCD-01B-09 §4.2a/§6.1: Solara purchases the motor, remote, charger, and other controls as separate wholesale components, installs the motor into the blind tube, and programmes/commissions the finished blind. No "complete motorised unit" is purchased from any supplier.
+
+**Motor-pricing source check, performed not assumed:** MCD-01B-09 §4.2a/§9.2 establishes that Beverley's motor pricing lives in its Roller-section file rather than its Day & Night file. The same possibility was checked explicitly for Decora against `prime-roller_2026-07-07-151219.xlsx` (a full-text search across every cell of every sheet in that file and all five other Decora Softshade files, for "stelor," "somfy," "motor," "tube," "barrel," "crown," "remote," "charger," "hub," and related terms — zero matches anywhere; see `mcd-04-decora-softshade-roller-pricing-report.md` §4). **The Beverley precedent does not hold for Decora on that evidence — none of the six previously-extracted Decora pricing files contain motor pricing.** The component prices below were supplied directly by this task's own instruction, not extracted from any of the six files; no source workbook/sheet reference is available for them beyond that instruction.
+
+#### Stelor
+
+| Code | Description | Price (£) | Pricing basis |
+|---|---|---|---|
+| STE446 | 32mm Motor | 30.00 | Discounted — Solara's real cost |
+| STE447 | 40/45mm Motor | 35.00 | Discounted — Solara's real cost |
+| STE448 | Component Pack, 32mm | 0.99 | Discounted — Solara's real cost |
+| STE449 | Component Pack, 40mm | 0.99 | Discounted — Solara's real cost |
+| STE450 | Component Pack, 45mm | 0.99 | Discounted — Solara's real cost |
+| STE451 | Single Ch Remote | 5.00 | Discounted — Solara's real cost |
+| STE454 | Single Ch Remote | 5.00 | Discounted — Solara's real cost |
+| STE452 | Six Ch Remote | 6.50 | Discounted — Solara's real cost |
+| STE455 | Six Ch Remote | 6.50 | Discounted — Solara's real cost |
+| STE453 | 3m Charger | 5.50 | Discounted — Solara's real cost |
+| STE456 | Solar Panel | 20.00 | Discounted — Solara's real cost |
+| STE444 | 32mm Bracket Pack | 1.55 | List price only, no discount confirmed |
+| STE442 | 40mm Bracket Pack | 2.25 | List price only, no discount confirmed |
+| STE440 | 45mm Bracket Pack | 2.60 | List price only, no discount confirmed |
+
+Not Provided: which specific compatibility distinction separates the two Single Ch Remote codes (STE451/STE454) from each other, and the two Six Ch Remote codes (STE452/STE455) from each other — both pairs share an identical price, and the instruction did not state whether the split is by motor size (32mm vs 40/45mm), by revision, or by another factor. Not inferred. Torque, speed, minimum installation width, maximum load, and warranty are Not Provided for every Stelor component — only code, description, and price were supplied.
+
+- Structured Technical Value — Metric: Component Wholesale Price; Value: as table above; Unit: £; Value Type: Currency; Basis: Per Component; Applies To: Decora Stelor motor range (Roller and Day & Night, per MCD-01B-09 §6.1); Evidence Status: Supplier Confirmed (price and code only); Source Reference: this task's instruction — no source workbook/sheet identified.
+
+#### Somfy
+
+| Code | Description | Price (£) | Pricing basis |
+|---|---|---|---|
+| BOC386 | Roll Up 24 RTS Motor | 63.40 | List price, no discount confirmed |
+| BOC404 | Tilt Only | 50.45 | List price, no discount confirmed |
+
+**Not Provided:** the full Situo/Smoove/TaHoma remote and switch range. This task's instruction states this range exists and refers to it as available "in chat history if needed" — that chat history is not accessible in this session, and per this project's standing discipline against inventing evidence, no code, description, or price for any Situo/Smoove/TaHoma item is recorded here. This is a genuine, explicit gap, not an oversight.
+
+- Structured Technical Value — Metric: Component Wholesale Price; Value: as table above; Unit: £; Value Type: Currency; Basis: Per Component; Applies To: Decora Somfy motor range (Roller and Day & Night, per MCD-01B-09 §6.1); Evidence Status: Supplier Confirmed (the two motor codes only); Source Reference: this task's instruction — no source workbook/sheet identified.
+- Structured Technical Value — Metric: Component Wholesale Price; Value: Not Provided; Unit: £; Value Type: Currency; Basis: Per Component; Applies To: Somfy Situo/Smoove/TaHoma remote and switch range; Evidence Status: Supplier data required.
+
+- **Capability:** Decora Stelor and Somfy motor/accessory component wholesale pricing, for use with both Roller and Day & Night blinds per MCD-01B-09 §6.1.
+- **Business Rule:** Matches MCD-01B-09 §21.1/§22a/§23a — each motorised order combines the blind price with the correct motor, remote, charger, and other components as separate line items; this record is the populated instance of the §23a shared motor component catalogue schema for Decora.
+- **Evidence:** Supplied directly in this task's own instruction text; not independently extracted from any workbook.
+- **Source References:** Not provided to Claude Code — no source workbook or sheet name was supplied for the motor component figures, unlike the blind-body pricing in §7.16.
+- **Validation Status:** Confirmed (code, description, price for every listed component); Not Provided (Somfy Situo/Smoove/TaHoma range; torque/speed/load/warranty for every Stelor and Somfy component; the STE451/454 and STE452/455 compatibility split; source workbook/sheet).
+- **Revision History:** 1 Aug 2026 — record created per this task's instruction, alongside §7.16, §7.18–§7.20. MCD-01B-09.md not modified.
+
+### 7.18 Day & Night Blinds → Beverley → Blind-Body Pricing and Fabric Bands
+
+**Naming note, per explicit instruction:** this record uses the generic terms **"Standard Day & Night"** and **"Cassette Day & Night."** Beverley's own term, "Night & Day" (already recorded at MCD-01B-09 §9), is **not** used here as the system name, per this task's explicit instruction — even though MCD-04 is the designated location where supplier terminology is otherwise expected to appear freely. Whether the cassette variant is open/semi or closed/full is **genuinely unconfirmed and not stated** — recorded as Not Provided, not guessed.
+
+**No size split for Beverley** — unlike Decora, Beverley's pricing does not distinguish 40mm/70mm (or any other) cassette size; "Cassette Day & Night" is a single pricing structure.
+
+**Source workbook not available to Claude Code:** `BeverleyBlinds-Master-2026.xlsx` was named as the source (sheets `Night & Day Standard` and `Night & Day Cassette`) but is not present in this repository or otherwise accessible in this session — checked directly (filesystem search, not assumed absent). **The actual per-band wholesale price figures (the width/drop grid values for Standard and Cassette, Bands A/B/C) were not supplied in this task's instruction text either.** This is recorded as a genuine, explicit gap — the band *structure* below is populated from what was supplied; the band *prices* are not, and must not be treated as populated.
+
+#### Standard Day & Night
+
+- Price bands: A, B, C (three bands; fabric bands correspond to §7.18's Fabric Bands below).
+- Wholesale price grid: **Not Provided to Claude Code** — source workbook and figures not supplied.
+- Dimensional pricing-grid range: per MCD-01B-09 §9.1, width 600–2,300mm, drop 300–2,300mm — already recorded there as pricing-grid evidence only, not a confirmed technical manufacturing limit; not re-verified or re-stated as confirmed here.
+- Metal Chain upgrade: **+£3.00**, confirmed, applies to Standard Day & Night.
+- Structured Technical Value — Metric: Metal Chain Upgrade Surcharge; Value: 3.00; Unit: £; Value Type: Currency; Basis: Fixed; Applies To: Beverley Standard Day & Night; Evidence Status: Supplier Confirmed; Source Reference: this task's instruction; sheet within `BeverleyBlinds-Master-2026.xlsx` not specified.
+
+#### Cassette Day & Night
+
+- Price bands: A, B, C (three bands).
+- Wholesale price grid: **Not Provided to Claude Code.**
+- Dimensional pricing-grid range: per MCD-01B-09 §9.1, width 600–2,300mm, drop 300–2,500mm — pricing-grid evidence only, same caveat as Standard above.
+- Metal Chain upgrade: **+£3.00**, confirmed, applies to Cassette Day & Night (identical surcharge to Standard).
+- Structured Technical Value — Metric: Metal Chain Upgrade Surcharge; Value: 3.00; Unit: £; Value Type: Currency; Basis: Fixed; Applies To: Beverley Cassette Day & Night; Evidence Status: Supplier Confirmed; Source Reference: this task's instruction; sheet within `BeverleyBlinds-Master-2026.xlsx` not specified.
+
+**Flagged, not fixed, per explicit instruction:** the source workbook's `Night & Day Cassette` and `Night & Day Cassette C` sheets contain **identical pricing**. The relationship between the two sheets (duplicate export, a third band-C-only variant sharing the same numbers by coincidence, a versioning artifact, or something else) is unconfirmed. Not investigated further and not resolved here — flagged in the PR description for review, per instruction not to attempt a fix.
+
+#### Fabric Bands
+
+| Band | Code count | Suffix |
+|---|---|---|
+| A | 29 | ND |
+| B | 28 | ND |
+| C | 30 | ND |
+
+**Actual fabric codes are Not Provided** — only the counts and shared suffix were supplied in this task's instruction; no individual code was given, and none is invented here. 87 codes total across the three bands.
+
+- Structured Technical Value — Metric: Fabric Band Code Count; Value: 29 (Band A), 28 (Band B), 30 (Band C); Value Type: Count; Basis: Construction-Specific; Applies To: Beverley Day & Night fabric range; Evidence Status: Supplier Confirmed (counts and suffix only); Notes: individual codes Not Provided. Source Reference: this task's instruction; sheet within `BeverleyBlinds-Master-2026.xlsx` not specified.
+
+- **Capability:** Beverley Day & Night blind-body pricing structure and fabric-band code counts.
+- **Business Rule:** Matches MCD-01B-09 §9/§9.1/§22 — separate standard and cassette order routes, fabric price bands, no size split.
+- **Evidence:** This task's own instruction text; no independent workbook access.
+- **Source References:** `BeverleyBlinds-Master-2026.xlsx`, sheets `Night & Day Standard` and `Night & Day Cassette` (named but not accessible in this session — checked, not found in the repository).
+- **Validation Status:** Confirmed (band structure, band count, Metal Chain surcharge, fabric-band code counts and suffix, generic naming requirement); Not Provided (all wholesale price-grid figures for both Standard and Cassette; all individual fabric codes; open/semi vs closed/full cassette detail — genuinely unconfirmed per instruction); Unresolved, flagged not fixed (Cassette vs Cassette C sheet-pricing duplication).
+- **Revision History:** 1 Aug 2026 — record created per this task's instruction, alongside §7.16–§7.17, §7.19–§7.20. MCD-01B-09.md not modified.
+
+### 7.19 Day & Night Blinds → Beverley → Motor & Accessory Component Pricing
+
+Same universal component-based motorisation model as Decora (MCD-01B-09 §4.2a/§9.2): Solara purchases the compatible motor and accessories separately, fits them into the blind's barrel, and commissions the finished blind. MCD-01B-09 §9.2 already establishes Beverley uses Elleard motors for both Roller and Day & Night; this record populates the component pricing referenced there but not previously priced.
+
+| Component | Price (£) |
+|---|---|
+| Motor, 32mm Tube | 40.287 |
+| Motor, 40mm Tube | 48.087 |
+| Hard Wire, 40mm | 75.01 |
+| Remote, Single Ch | 15.08 |
+| Remote, 15 Ch | 20.54 |
+| Wall Mount, 15 Ch | 28.60 |
+| Charger | 4.225 |
+| 3mtr Cable | 3.90 |
+| Mini Hub | 80.60 |
+
+**No product codes were supplied for any Beverley motor component** — recorded by description only, as given. **Pricing basis (list vs discounted) was not specified** in this task's instruction, unlike the Decora Stelor/Somfy lines — recorded as given, without asserting either basis.
+
+**Flagged, not fixed, per explicit instruction:** Beverley has supplied **no motor technical specification whatsoever** for any of these components — no warranty, no load limit, no child-safety figure, and no barrel-size threshold (i.e. the width/drop or load point at which a 32mm-tube motor must become a 40mm-tube motor). MCD-01B-09 §9.4 already lists "which Elleard motor models are compatible with each barrel size" and "the specific width/drop thresholds determining 32 mm versus 40 mm barrel selection" as open items — this record's pricing-only population does not resolve either open item, and does not attempt to.
+
+- Structured Technical Value — Metric: Component Wholesale Price; Value: as table above; Unit: £; Value Type: Currency; Basis: Per Component; Applies To: Beverley Elleard-compatible motor range (Roller and Day & Night, per MCD-01B-09 §9.2); Evidence Status: Supplier Confirmed (price only; basis — list or discounted — not specified); Notes: no product code, torque, load, warranty, or barrel-threshold detail supplied for any line.
+
+- **Capability:** Beverley motor/accessory component wholesale pricing.
+- **Business Rule:** Matches MCD-01B-09 §9.2/§22a — motor and accessories priced and purchased separately from the blind, combined at quotation stage.
+- **Evidence:** This task's own instruction text; no independent workbook access.
+- **Source References:** Not provided to Claude Code — no sheet name given for this component list, and `BeverleyBlinds-Master-2026.xlsx` is not accessible in this session.
+- **Validation Status:** Confirmed (component description and price, nine lines); Not Provided (product codes; pricing basis — list vs discounted; torque, speed, minimum installation width, maximum load, warranty, barrel-size threshold — for every component).
+- **Revision History:** 1 Aug 2026 — record created per this task's instruction, alongside §7.16–§7.18, §7.20. MCD-01B-09.md not modified.
+
+### 7.20 Day & Night Blinds → General (cross-supplier facts)
+
+Facts stated in this task's instruction as applying across both Decora and Beverley (Arena excluded from scope, per §7.16's scope note), matching the pattern already used for cross-construction facts elsewhere in this document (§7.7, Roman Blinds → General).
+
+- **No total-blackout option exists for Day & Night, for any supplier, period.** Consistent with MCD-01B-09 §10.3/§18.3, which already establish that a Day & Night Blind must not be described or sold as a total-blackout product.
+- **No fabric joins on Day & Night — fabric is sheer and cannot be joined.** This is a **new, confirmed resolution** of what MCD-01B-09 §10.6/§27 currently records as an *open* item ("No fabric-join rule has yet been verified... the system must not assume joins are permitted"; listed again in §27's Open Evidence as "fabric-join policy for all suppliers"). **Flagged for Nazmil Ghany:** MCD-01B-09.md's own Open Evidence Item and §10.6 should be updated to reflect this resolution in a separate, deliberate task — not done here, per this task's explicit instruction not to touch MCD-01B-09.md.
+- **Reverse-roll does not exist as a concept for Day & Night** — the two fabric layers run in loop mode, not a reversible single-layer roll. Consistent with, not new beyond, MCD-01B-09 §11.3's existing "Day & Night Blinds do not have a reverse-roll option." **New clarifying distinction, recorded here:** this must not be confused with Decora's own, unrelated "Standard/Reverse" cassette **mounting-orientation** field (a physical installation-orientation setting for the cassette hardware itself, not a fabric-roll-direction concept) — the two are different fields entirely, and Day & Night's non-existent reverse-roll should never be resolved by, or conflated with, that Decora mounting-orientation setting. This distinction is not currently stated in MCD-01B-09 and is recorded here only; flagged for a future MCD-01B-09 clarification pass, not made there now.
+- **No blackout fabrics available for Day & Night, period — genuine conflict with MCD-01B-09, flagged not resolved.** MCD-01B-09 §10.2 ("Fabric categories") explicitly lists **"blackout-material bands with sheer voile"** as a fabric category "supplier collections may include." This task's instruction states flatly that no blackout fabrics are available for Day & Night at all, for any supplier. These two statements are not straightforwardly consistent. **Two readings, neither adopted as fact here:** (a) §10.2 describes a fabric category that exists generically in the market/product-category sense, while this instruction is a Solara-side commercial curation decision not to stock or offer any blackout-banded Day & Night fabric — under this reading there is no true contradiction, only a difference between "what the category permits" and "what Solara currently offers"; or (b) the two statements are in direct factual conflict and one is simply wrong. Recorded as given by this task's instruction (Confirmed, per this task); the tension with §10.2 is not silently resolved either way, and MCD-01B-09.md is not edited to reconcile it, per this task's explicit scope restriction. **Flagged prominently in the PR description**, beyond the two items this task explicitly asked to be flagged.
+
+- Structured Technical Value — Metric: Total-Blackout Availability; Value: Not Available (any supplier); Value Type: Boolean; Basis: Fixed; Applies To: Day & Night Blind, all suppliers in scope; Evidence Status: Supplier Confirmed; Notes: consistent with MCD-01B-09 §10.3/§18.3, not new.
+- Structured Technical Value — Metric: Blackout Fabric Availability; Value: Not Available (any supplier), per this task's instruction; Value Type: Boolean; Basis: Fixed; Applies To: Day & Night Blind, all suppliers in scope; Evidence Status: Supplier Confirmed (per this task's instruction); Notes: **conflicts with MCD-01B-09 §10.2's fabric category list** — see discussion above; not resolved.
+- Structured Technical Value — Metric: Fabric Join Policy; Value: No joins — fabric is sheer, cannot be joined; Value Type: Text Rule; Basis: Fixed; Applies To: Day & Night Blind, all suppliers in scope; Evidence Status: Supplier Confirmed; Notes: resolves MCD-01B-09 §10.6/§27's currently-open fabric-join item; MCD-01B-09.md not updated to reflect this — flagged for a separate task.
+- Structured Technical Value — Metric: Reverse-Roll Availability; Value: Not a valid concept for Day & Night (two-layer loop operation, not a reversible single-layer roll); Value Type: Boolean; Basis: Fixed; Applies To: Day & Night Blind, all suppliers in scope; Evidence Status: Supplier Confirmed; Notes: must not be conflated with Decora's separate "Standard/Reverse" cassette mounting-orientation field — a different, physical installation-orientation setting, not a fabric-roll-direction concept.
+
+- **Capability:** Cross-supplier Day & Night product facts not specific to any one supplier's pricing.
+- **Business Rule:** Matches MCD-01B-09 §10.3, §10.6, §11.3, §18.3.
+- **Evidence:** This task's own instruction text.
+- **Source References:** This task's instruction; MCD-01B-09.md §10.2, §10.3, §10.6, §11.3, §18.3, §27 (for cross-referencing only — MCD-01B-09.md itself not modified).
+- **Validation Status:** Confirmed (no total-blackout, no fabric joins, no reverse-roll concept, the mounting-orientation distinction); Unresolved, flagged not fixed (blackout-fabric-availability conflict with MCD-01B-09 §10.2).
+- **Revision History:** 1 Aug 2026 — record created per this task's instruction, alongside §7.16–§7.19. MCD-01B-09.md not modified.
+
 ## 8. Decision Register
 
 Maintained in accordance with MCD-00A conventions as established in MCD-01B-01 §17 and MCD-01B-02 §23 (MCD-00A itself was not available in the repository at time of writing — see the row below). Format: Date | Decision | Reasoning | Raised By.
@@ -456,6 +704,12 @@ Maintained in accordance with MCD-00A conventions as established in MCD-01B-01 �
 | 26 Jul 2026 | **Filename discrepancy noted, not silently resolved.** The enrichment brief names the second source document as `MEAS005 - Cruze Pleated Cellular FITtoFRAME Measuring Instructions - Issue V2 - 02.07.2025 (1).pdf` (with a `" (1)"` suffix), while the same document was recorded on 20 Jul 2026 without that suffix. Both filenames are recorded in §7.15's Source References rather than assuming they refer to the same file (e.g. a duplicate download) or different file versions — neither design brief states which. | Per this project's standing discipline against silently reconciling discrepancies between what a brief asserts and what is already recorded | Claude Code — flagged for Nazmil Ghany; a source-library check would resolve whether these are the same file |
 | 26 Jul 2026 | **V4 measuring-instructions document: recorded as "not located," not "inaccessible," per the enrichment brief's explicit instruction and its own stated finding.** This is a different evidentiary claim from the 20 Jul 2026 record's "not accessible to Claude Code" wording — "not located" reflects the enrichment brief's own account of a targeted SharePoint search having been performed and having failed to find the file, whereas the earlier wording reflected only that Claude Code itself lacked access. Its applicability to this construction, or to Aluminium Venetian, remains genuinely unresolved and is not inferred from either of the two documents that were located. | Per the enrichment brief's explicit instruction: "Do not describe it merely as inaccessible" | Design brief (claude-code-brief-MCD-04-08A-enrichment.md) |
 | 26 Jul 2026 | **MCD-01B-08A.md Open Evidence Item factually resolved by this enrichment, flagged for separate follow-up rather than edited here.** MCD-01B-08A.md's own Open Evidence Items (§20) and Version History (v0.1) list "exact profile-colour availability" as open. This enrichment's new §7.15 data (profile colours White/Anthracite/Black/Grey/Nobel, with end-cap codes and colour-matching rules, per SPEC70) factually resolves that item. Per the enrichment brief's explicit instruction, MCD-01B-08A.md is not edited as a side effect of this MCD-04-only task — this finding is flagged here and in the task report for a separate, deliberate follow-up to close the item in MCD-01B-08A.md's own Decision Register. No other MCD-01B-08A.md Open Evidence Item is factually resolved by this enrichment: the fixing-route and bracket codes identify hardware but not the per-route eligibility rule the "exact bead-clip-versus-adhesive-tape eligibility rules" item asks for, and motorisation, non-square bead eligibility, and gasket thickness/projection remain open per the enrichment brief's own instruction. | Per the enrichment brief's explicit instruction not to edit MCD-01B-08A.md even where new evidence appears to resolve one of its Open Evidence Items | Claude Code — flagged for Nazmil Ghany; MCD-01B-08A.md's own Decision Register should be updated deliberately in a separate task |
+| 1 Aug 2026 | **"Currency" formalised as a named Structured Technical Value Value Type (§5), for the first time.** Day & Night pricing (§7.16–§7.19) is the first population pass to record monetary values in this schema; Currency did not previously exist among the six named Value Type values. Formalised rather than force-fitted into Text Rule, matching the precedent already set when Quoting Status was formalised as a named field during the Metal Venetian pass (§7.13/§5). | Schema-completeness gap found while populating pricing data, per this project's standing practice of formalising a schema field the first time it is genuinely needed rather than working around its absence | Claude Code — schema check against MCD-04's actual §5 content before populating §7.16–§7.19 |
+| 1 Aug 2026 | **Day & Night Blinds → Decora and Beverley pricing/rules records created (§7.16–§7.20)**, per this task's own instruction. Decora blind-body pricing (§7.16) transcribed as four-corner anchors per fabric band from the five relevant, previously-extracted Decora xlsx files, using `DISCOUNTED COST` values only — the `SUGGESTED SELL PRICE` columns in those files were independently re-confirmed (formulas inspected, not just cached values) to be a stale, zero-cached Solara mark-up calculator, not an independent supplier RRP, matching the finding already reported on branch `claude/mcd-04-decora-softshade-roller-pricing`. Full per-mm grids (up to 368 cells per band) were deliberately not transcribed cell-by-cell, consistent with this project's standing practice for large supplier tables (Roman's ~100-row fabric range, §7.3–§7.7) — the named source file remains authoritative for the pricing engine's own ingestion. Decora motor pricing (§7.17, Stelor/Somfy) and Beverley motor pricing (§7.19) were transcribed in full from this task's own instruction text, since both are short, finite component lists rather than large grids. Also added §7.16's SPEC75 (Premier Softshade) technical-basis block — child-safety figures and system dimensions supplied directly by this task's instruction — flagging a conflict against MCD-01B-09 §7.2's already-recorded minimum drop (500mm there; 200mm in the SPEC75 figure supplied here), not resolved. | Required by this task's own instruction | This task's instruction (Decora/Beverley Day & Night pricing) |
+| 1 Aug 2026 | **Decora motor-pricing source check performed explicitly, not assumed, per this task's own instruction.** MCD-01B-09 §4.2a/§9.2 already establishes that Beverley's motor pricing lives in its Roller-section file rather than its Day & Night file. The same possibility was checked for Decora: a full-text, case-insensitive search across every cell of every sheet in all six previously-extracted Decora pricing files (including `prime-roller_2026-07-07-151219.xlsx`) for "stelor," "somfy," "motor," "tube," "barrel," "crown," "remote," "charger," "hub," and related terms returned zero matches in any file. **The Beverley precedent does not hold for Decora on this evidence** — none of the six files contain motor pricing; the component prices in §7.17 came directly from this task's own instruction text, with no source workbook/sheet identified for them. | Per this task's explicit instruction to check the Prime Roller file explicitly rather than assume either way, and per this project's standing discipline against inventing evidence | Claude Code — full-text verification, not assumed; this task's instruction supplied the actual component prices |
+| 1 Aug 2026 | **Beverley source workbook (`BeverleyBlinds-Master-2026.xlsx`) is not accessible in this session — checked directly, not assumed absent.** A filesystem search found no matching file anywhere in the repository or elsewhere accessible. This task's own instruction supplied the Metal Chain surcharge (+£3.00, both Standard and Cassette), the fabric-band code counts and suffix (29/28/30, "ND"), and the motor component prices (§7.19) — all recorded as Confirmed. **The actual Beverley Standard/Cassette wholesale price-grid figures (Bands A/B/C) and the actual fabric codes themselves were not supplied in this task's instruction text and could not be independently extracted.** Recorded as Not Provided in §7.18, not fabricated, and not silently left implicit — surfaced here and in the task's final report so it is not mistaken for a completed population. | Per this project's standing discipline against inventing evidence — a source file being named does not substitute for either the file itself or its actual figures being supplied | Claude Code — filesystem check performed; this task's instruction did not include the underlying price figures |
+| 1 Aug 2026 | **Two items flagged per explicit instruction, deliberately not investigated or resolved:** (1) the `Night & Day Cassette` and `Night & Day Cassette C` sheets in `BeverleyBlinds-Master-2026.xlsx` contain identical pricing, and the relationship between the two sheets is unconfirmed; (2) Beverley has supplied no motor technical specification at all (warranty, load limits, child-safety figures, barrel-size threshold) for any component in §7.19 — pricing only. Both are carried into the task's PR description per instruction, rather than guessed at or silently absorbed into the record as if resolved. | Explicit instruction: "Flag in the PR description as unresolved, don't attempt to fix" | This task's instruction |
+| 1 Aug 2026 | **Genuine conflict found between this task's instruction and MCD-01B-09's existing content, flagged rather than silently resolved either way; MCD-01B-09.md not modified, per this task's explicit scope restriction.** This task's instruction states "no blackout fabrics available for Day & Night, period" as a confirmed, final fact. MCD-01B-09 §10.2 already lists "blackout-material bands with sheer voile" as a fabric category supplier collections may include. Two readings are offered in §7.20 without adopting either as settled: a Solara-side curation decision not to stock that category (no true contradiction), or a direct factual conflict. Recorded as given by this task in §7.20; not reconciled with §10.2, and MCD-01B-09.md is not edited to resolve it here. A related, smaller finding is recorded alongside it: this task's fabric-join instruction ("no fabric joins... fabric is sheer, cannot be joined") factually resolves MCD-01B-09 §10.6/§27's currently-open fabric-join item, but MCD-01B-09.md is likewise not updated to reflect that resolution, for the same scope reason. | Per this project's standing discipline of flagging a conflict between new instruction and already-recorded content rather than silently complying or silently ignoring it, applied here even though it goes beyond the two items this task explicitly asked to be flagged | Claude Code — found while populating §7.20 against MCD-01B-09.md's existing text for cross-reference only |
 
 ## 9. Version History
 
@@ -470,3 +724,4 @@ Maintained in accordance with MCD-00A conventions as established in MCD-01B-01 �
 | 0.6 Draft Skeleton | **Pleated & Cellular Blinds population**, per claude-code-brief-MCD-01B-07.md's supplier-mapping sections, alongside the new MCD-01B-07.md product specification. Moved "Pleated Blinds" out of §6's Future Entries list and added a populated Document Organisation branch. Added §7.14 (Supplier Alias and Construction Mapping), transcribing three anonymised suppliers' real alias names and product-code range exactly as given, plus qualitative pleat-size (~20mm), cell-size (~25mm), motorisation-availability, and side-wire-deflection figures. Found, on close reading, that the brief's instruction to "populate MCD-04 with the full neutral-to-supplier mapping" was not actually matched by the brief's own supplied content — only the CZP product-code range's collective mapping and its Perfect Fit-equivalent exclusion boundary were given as confirmed mappings; all ten individual alias names (across two suppliers) were supplied as names only, with no corresponding neutral-construction pairing, and are recorded uniformly as "Supplier confirmation required" rather than inferring plausible mappings from naming conventions for the eight names the brief did not explicitly flag as unconfirmed. Existing Vertical (§7.1), Roman (§7.3–§7.7), Faux Wood Venetian (§7.9–§7.10), and Metal Venetian (§7.11–§7.13) records were left untouched. MCD-01A, MCD-01B-01, MCD-01B-02, MCD-01B-03, MCD-01B-04, MCD-01B-05, and MCD-01B-06 were not modified. |
 | 0.7 Draft Skeleton | **Side-Guide Window-Mounted Pleated & Cellular implementation population**, per claude-code-brief-MCD-01B-08A.md §23, alongside the new MCD-01B-08A.md product specification. Added §6 Document Organisation tree entries for Frame-Mounted and Window-Mounted Blind Systems → Side-Guide Window-Mounted System. Added §7.15, naming the exact supplier system ("FITtoFRAME™") — deliberately absent from MCD-01B-08A.md itself, applying MCD-01B-08's own ratified "Perfect Fit" controlled-reference precedent — with confirmed dimensional limits, linked width/drop restrictions, maximum area, handle clearance, the square-profile gasket-protrusion rule, and a confirmed fabric exclusion (Bowery). Exact component/bracket codes, non-square-profile eligibility, profile colours, full child-safety classification, motorisation, and commercial detail recorded as Not Provided or Supplier Confirmation Required, not inferred. None of the three named source documents were accessible to Claude Code during this task; the second, possibly-Aluminium-Venetian-specific MEAS005 file is neither cited nor relied upon, reserved instead for a later MCD-01B-08B work package per the brief's own fallback instruction. Aluminium Venetian, confirmed to exist under this same supplier system, is explicitly not populated in this record. Existing Vertical (§7.1), Roman (§7.3–§7.7), Faux Wood Venetian (§7.9–§7.10), Metal Venetian (§7.11–§7.13), and Pleated & Cellular alias mapping (§7.14) records were left untouched. MCD-01A, MCD-01B-01, MCD-01B-02, MCD-01B-03, MCD-01B-04, MCD-01B-05, MCD-01B-06, MCD-01B-07, and MCD-01B-08 were not modified. |
 | 0.8 Draft Skeleton | **§7.15 supplier-record evidence enrichment**, per claude-code-brief-MCD-04-08A-enrichment.md. Replaced a series of Not Provided / Supplier Confirmation Required fields with confirmed values now directly supplied by the enrichment brief, each cited to `SPEC70 Cruze Pleated Cellular Specification - Issue V7 - 17.06.2026.pdf`: Cellular cell size (25mm), Pleated pleat size (20mm), manufacturing tolerance (±3mm width/drop), recess width deduction (10mm, width only — no equivalent drop figure stated, recorded as Not Provided rather than assumed), fixing-route codes (CZP09 Beading Clip, CZP10 High-Strength Adhesive Tape) and bracket/component codes (CZP106/107, CZP109/110, CZP124/125, CZP108), standard and folding handle codes (CZP128–CZP131, CZP151) and the handle-quantity rule, end-cap codes (CZP033–CZP037) and profile/end-cap/handle colour-matching rules with RAL references (Anthracite RAL7016, Nobel RAL7022), and the Bowery fabric exclusion's exact source wording. Added explicit per-field corroborating citations to `MEAS005 - Cruze Pleated Cellular FITtoFRAME Measuring Instructions - Issue V2 - 02.07.2025 (1).pdf` for facts already recorded from the original brief (measurement method, dimensional limits and linked restrictions, handle clearance, 2mm square-profile gasket rule) — noting a filename discrepancy (a `" (1)"` suffix not present in the originally recorded filename) rather than silently unifying the two. Recorded the second, differently-titled measuring-instructions document (V4) as "not located in the available SharePoint source library after repeated targeted searches," per the enrichment brief's explicit instruction, replacing the earlier "not accessible to Claude Code" wording — a different evidentiary claim, not treated as equivalent. Motorisation, chamfered/ovolo-curved bead eligibility, and gasket thickness/projection beyond the confirmed 2mm minimum were checked against both source documents and confirmed still genuinely open, per the enrichment brief's explicit instruction not to resolve them by inference. Found that this enrichment's new profile-colour data factually resolves MCD-01B-08A.md's own Open Evidence Item "exact profile-colour availability" — flagged for a separate, deliberate follow-up rather than edited into MCD-01B-08A.md as a side effect of this task, per the enrichment brief's explicit instruction. This is a supplier-record evidence enrichment only: no status promotion, no architectural change. MCD-01B-08A.md and MCD-01A, MCD-01B-01 through MCD-01B-08 were not modified. |
+| 0.9 Draft Skeleton | **Day & Night Blinds population — Decora and Beverley pricing/rules, Arena intentionally excluded**, per this task's own instruction (no separate brief file). Added §6 Document Organisation tree entries for Day & Night Blinds. Formalised "Currency" as a named Structured Technical Value Value Type (§5), the first population pass to record monetary values in this schema. Added §7.16 (Decora blind-body pricing — Standard Open/Closed, Semi-Cassette 40mm, Semi-Cassette 70mm with fabric insert — four-corner price anchors per fabric band from five previously-extracted xlsx files, `DISCOUNTED COST` values only; full per-mm grids deliberately not transcribed, matching the Roman fabric-range precedent; `premier-softshade` file reviewed but left unmapped to any of the three named varieties, flagged as a possible closer match to the SPEC75-governed general fascia system instead; also added §7.16's SPEC75/Premier Softshade technical-basis block — child-safety figures (150mm minimum control length, 1,500mm floor deduction, D-Clip Chain Tidy) and system dimensions (200–2,500mm width, 200–3,000mm drop, ±3–5mm tolerance) — flagging a conflict with MCD-01B-09 §7.2's existing 500mm minimum-drop figure). Added §7.17 (Decora Stelor/Somfy motor component pricing, transcribed in full from this task's instruction; Somfy Situo/Smoove/TaHoma range explicitly Not Provided; the Prime Roller file and all five Softshade files were checked explicitly — not assumed — for motor pricing via full-text search and found to contain none, so the Beverley Roller-section precedent does not hold for Decora). Added §7.18 (Beverley Standard/Cassette Day & Night pricing structure and fabric-band code counts — generic naming used per instruction, not Beverley's own "Night & Day" term; the actual wholesale price-grid figures and individual fabric codes were not supplied in this task's instruction and the source workbook `BeverleyBlinds-Master-2026.xlsx` is not accessible in this repository, so both are recorded as Not Provided rather than fabricated; the Cassette/Cassette C sheet-pricing duplication is flagged, not investigated). Added §7.19 (Beverley motor component pricing, transcribed in full; no product codes, pricing basis, or any motor technical specification — warranty, load limits, child-safety figures, barrel-size threshold — were supplied for any component, flagged not fixed). Added §7.20 (Day & Night Blinds → General: no total-blackout option and no reverse-roll concept, both consistent with MCD-01B-09's existing content; no fabric joins, a new resolution of MCD-01B-09's currently-open fabric-join item; no blackout fabrics available, which conflicts with MCD-01B-09 §10.2's fabric-category list and is flagged, not resolved, beyond the two items this task explicitly asked to be flagged). **MCD-01B-09.md was not modified anywhere in this pass**, per this task's explicit instruction — including where this task's own new facts factually resolve or conflict with content already recorded there; every such case is flagged in the Decision Register and in the task's PR description for separate, deliberate follow-up rather than applied here. Existing Vertical (§7.1), Roman (§7.3–§7.7), Faux Wood Venetian (§7.9–§7.10), Metal Venetian (§7.11–§7.13), Pleated & Cellular alias mapping (§7.14), and Side-Guide Pleated & Cellular (§7.15) records were left untouched. MCD-01A and MCD-01B-01 through MCD-01B-08A were not modified. |
