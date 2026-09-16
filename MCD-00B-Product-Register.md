@@ -23,7 +23,7 @@ Last Updated: 16 September 2026
 | MCD-01B-08A | Side-Guide Window-Mounted Pleated & Cellular Blind | Approved Draft Baseline – Product Specification | 1.0 | — (main) | Pleated/Cellular under the Side-Guide Window-Mounted Construction Group | N (child of MCD-01B-08) |
 | MCD-01B-08B | Side-Guide Window-Mounted Aluminium Venetian Blind | Working Draft — Unverified | 0.2 (research stage — partial ratification, not promoted) | `claude/mcd-01b-08b-side-guide-aluminium-venetian` | Aluminium Venetian under the Side-Guide Window-Mounted Construction Group | N (child of MCD-01B-08) |
 | MCD-01B-08C | Full-Frame Bead-Mounted Roller Blind | Approved Draft Baseline – Product Specification | 1.0 | — (main) | Roller under the Full-Frame Bead-Mounted Construction Group | **Y** — ratified reference implementation for the Full-Frame Bead-Mounted Construction Group |
-| MCD-01B-08D | Full-Frame Bead-Mounted Pleated & Cellular Blind | Approved Draft Baseline – Product Specification | 1.0 | — (main) | Pleated and Cellular under the Full-Frame Bead-Mounted Construction Group | N (child of MCD-01B-08) |
+| MCD-01B-08D | Full-Frame Bead-Mounted Pleated & Cellular Blind | Approved Draft Baseline – Product Specification | 1.1 | — (main) | Pleated and Cellular under the Full-Frame Bead-Mounted Construction Group | N (child of MCD-01B-08) |
 | MCD-01B-09 | Day & Night Blind | Working Draft — Partially Verified | v0.3 | — (main) | Free-hanging Day & Night (alternating sheer/opaque band) blind, standard family | N |
 | MCD-04 | Product Library & Supplier Management | Draft Skeleton | 0.11 | — (main) | Supplier capability library (dimensions, codes, pricing) underlying all product specifications above | N/A (supplier library, not a product spec) |
 
@@ -37,8 +37,8 @@ Last Updated: 16 September 2026
 |---|---|---|
 | Roller | MCD-01B-08C | Promoted — Approved Draft Baseline v1.0 (reference implementation) |
 | Day & Night | Not yet established | Not started |
-| Pleated | MCD-01B-08D | Promoted — Approved Draft Baseline v1.0 (Pleated and Cellular covered together in one document) |
-| Cellular | MCD-01B-08D | Promoted — Approved Draft Baseline v1.0 (Pleated and Cellular covered together in one document) |
+| Pleated | MCD-01B-08D | Promoted — Approved Draft Baseline v1.1 (Pleated and Cellular covered together in one document) |
+| Cellular | MCD-01B-08D | Promoted — Approved Draft Baseline v1.1 (Pleated and Cellular covered together in one document) |
 | Aluminium Venetian | Not yet established | Not started |
 | Wooden Venetian | Not yet established | Not started |
 | Lite Shutters | Not yet established | Not started |
@@ -66,10 +66,11 @@ No other Side-Guide Window-Mounted children are currently planned or referenced 
 | Gasket-rule refinement (sub-2mm protrusion selecting an alternative ordering measurement route rather than failing eligibility), found in MCD-01B-08B's research evidence, likely affects MCD-01B-08A's own DR-07 "conservative operational restriction" characterisation | MCD-01B-08B (source), MCD-01B-08A (potentially affected) | Open — flagged in MCD-01B-08B DR-06 (treatment confirmed by Nazmil Ghany, 26 Jul 2026, as requiring its own separate follow-up task); MCD-01B-08A not modified |
 | Supplier company name, internal construction-system reference, advisor-facing display name, and verified profile/colour/handle facts disclosed in MCD-01B-08B's research evidence would resolve MCD-04 §7.15's standing "Not Provided" supplier-company field | MCD-01B-08B (source), MCD-04 (target) | Open — flagged in MCD-01B-08B DR-09 (treatment confirmed by Nazmil Ghany, 26 Jul 2026, as requiring its own separate MCD-04 enrichment task); MCD-04 not modified |
 | MCD-01B-08B exists as a substantial partially-ratified working draft but sits unmerged on its own branch, with no PR ever opened — not visible from `main` alone | MCD-01B-08, MCD-01B-08A (its declared sibling/family context), MCD-01B-08B | Open — no PR exists to track promotion or merge; status only discoverable by checking the branch directly |
-| Route 1 frame-colour list differs between Full-Frame Bead-Mounted constructions: 7 colours including Beige for Pleated & Cellular, 6 colours without Beige for Roller | MCD-01B-08D (DR-15, source of the finding), MCD-01B-08C (not modified) | Open — recorded in MCD-01B-08D, not resolved; supplier confirmation requested |
+| Route 1 frame-colour list differs between Full-Frame Bead-Mounted constructions: 7 colours including Beige for Pleated & Cellular, 6 colours without Beige for Roller | MCD-01B-08D (DR-15, source of the finding), MCD-01B-08C (not modified) | Open for MCD-01B-08C only — Beige confirmed operational for MCD-01B-08D on both routes (16 Sep 2026); whether MCD-01B-08C's Route 1 Roller list is complete remains unconfirmed; MCD-01B-08C not modified |
 | Day & Night Open-cassette drop: MCD-04 §7.16 still flags its 2,300 mm pricing grid as conflicting with MCD-01B-09 §7.1's 1,900 mm Open-cassette maximum; the business resolution is that the 2,300 mm figure is Closed-cassette data mislabelled as Open | MCD-04, MCD-01B-09 | Open — MCD-01B-09 is correct; MCD-04 not yet updated (found in the MCD-01B-08D pre-flight check, 16 Sep 2026) |
 | Day & Night child-safety device: MCD-01B-09 records that the same child-safety device applies regardless of fascia system; MCD-04 §7.16 records a single device from one source only and does not state this decision | MCD-04, MCD-01B-09 | Open — MCD-04 not yet updated (found in the MCD-01B-08D pre-flight check, 16 Sep 2026) |
 | MCD-00B was not updated in the same commit as MCD-01B-08D's promotion and merge (PR #24), contrary to this register's own "How to keep this current" rule; corrected by a separate follow-up commit | MCD-00B, MCD-01B-08D | Closed — register brought up to date 16 Sep 2026; process note recorded for future promotions |
+| Centre-Meet movement style (two fabric sections meeting within the glass) is defined in MCD-01B-08D §5.4 (Route 2 only) but not in the base Pleated & Cellular specification | MCD-01B-08D (source, DR-18), MCD-01B-07 (not modified) | Open — MCD-01B-07 may need a separate controlled update to define it as a base movement style |
 
 ---
 
