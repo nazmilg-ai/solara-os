@@ -735,6 +735,117 @@ Facts stated in this task's instruction as applying across both Decora and Bever
 - **Validation Status:** Confirmed (no total-blackout, no fabric joins, no reverse-roll concept, the mounting-orientation distinction); Unresolved, flagged not fixed (blackout-fabric-availability conflict with MCD-01B-09 §10.2).
 - **Revision History:** 1 Aug 2026 — record created per this task's instruction, alongside §7.16–§7.19. MCD-01B-09.md not modified.
 
+### 7.21 Frame-Mounted and Window-Mounted Blind Systems → Full-Frame Bead-Mounted System → Pleated & Cellular → Decora
+
+**Note on naming:** this record populates the supplier evidence behind **MCD-01B-08D's Route 1** (the "a Finished-Blind Manufacturer providing a confirmed technical specification for this construction" role in that document's Route 1/Route 2 scheme). MCD-01B-08D.md itself is neutral and names no supplier, product, or code — per this task's explicit instruction it is not edited here. MCD-04 is the deliberate exception to that neutrality, so the real supplier name, brand, system name, and product codes are recorded here in full, not reproduced from MCD-01B-08D's wording. Supplier: **Decora**. Product-line identifier (brand shown on the source document and on the handle moulding itself): **Cruze**. System name: **Perfect Fit**. Configurations: **CZP11 (Perfect Fit Bottom Up)** and **CZP12 (Perfect Fit Top Down Bottom Up)**. This is a different Decora system from the one already recorded at §7.15 (FITtoFRAME™, CZP09/CZP10, Side-Guide Window-Mounted) — both are described in the same source document but are separate, distinctly coded systems for two different Construction Groups; not conflated here.
+
+- **Capability:** Decora's Cruze Perfect Fit Pleated & Cellular system — full technical specification for the Full-Frame Bead-Mounted Construction Group's Pleated & Cellular implementation (MCD-01B-08D).
+- **Business Rule:** Matches MCD-01B-08D §1–§22 — this record is the real, supplier-named evidence behind that document's neutral Route 1 construction-layer facts (frame, profile, brackets, handles, colour mapping, fabric structure); MCD-01B-08D's own neutral wording is not reproduced here, only the underlying supplier facts.
+- **Technical Specification:**
+  - **System identity and configurations.** CZP11 = Perfect Fit Bottom Up (Top Profile: Standard; Bottom Profile: Reinforced); CZP12 = Perfect Fit Top Down Bottom Up (Top Profile: Reinforced; Bottom Profile: Reinforced). Both: Control Options Handle/No Handle; Mounting — under-glass beading with brackets. Source: p. 20.
+  - **Size limits (both configurations, identical).** Min width 200mm; min drop 150mm; max width 1500mm; max drop 2300mm; max area 3m². Measurement basis: glass size (implied by the "square frame windows" clearance note below, consistent with the Measurement Basis already recorded for the FITtoFRAME system at §7.15 — SPEC70 does not repeat the explicit "Visible Glass Size" wording on the Perfect Fit pages themselves, so this is recorded as implied, not independently restated by the source on these pages). Source: p. 2, p. 19, p. 20 (system overview and both per-configuration tables agree exactly).
+  - **Square-frame clearance guidance.** "On square frame windows it is recommended take 5mm of the width and drop to allow clearance for the components." Source: p. 19.
+  - **Profile dimensions.** Perfect Fit Profile: width 38mm, height 26.4mm — distinct from the Standard Profile (width 22mm, height 16.4mm) and the Reinforced Profile (width 22mm, height 22mm), both shown on the same comparison table. Source: p. 19.
+  - **Frame material and colours.** Aluminium. 7 colours: White, Beige, Anthracite, Brown, Golden Oak, Mahogany, Black. No frame-colour default is stated on these pages (a document-wide default of White is stated for *profile* colour elsewhere in the source, per p. 2 — not extended to frame colour here, not assumed). Source: p. 19.
+  - **Glass clearance.** "25mm of clearance is required between handles and or vents to the glass" — stated on both the frame page and the handle-insert page. Source: p. 19, p. 23.
+  - **Side-frame fixing holes.** "Two holes are punched into the side frames... Anything over 1100mm drop there will be three holes punched." Source: p. 21.
+  - **Bracket quantity by drop.** Drop <1100mm: 4 fixing brackets. Drop 1101–2300mm: 6 fixing brackets. Source: p. 21.
+  - **Fixing bracket sizes, colours and product codes.** 9 sizes (18, 20, 22, 24, 26, 28, 30, 32, 38mm), 4 colours (White, Brown, Anthracite, Black), each size/colour combination with its own real code:
+
+| Size | White | Brown | Anthracite | Black |
+|---|---|---|---|---|
+| 18mm | PF018 | PF032 | PF052 | PF109 |
+| 20mm | PF016 | PF034 | PF053 | PF110 |
+| 22mm | PF060 | PF059 | PF058 | PF111 |
+| 24mm | PF004 | PF033 | PF054 | PF112 |
+| 26mm | PF134 | PF137 | PF140 | PF143 |
+| 28mm | PF135 | PF138 | PF141 | PF144 |
+| 30mm | PF040 | PF039 | PF055 | PF113 |
+| 32mm | PF136 | PF139 | PF142 | PF145 |
+| 38mm | PF043 | PF122 | PF120 | PF056 |
+
+    Source: p. 21.
+  - **Additional top-fix bracket, found on the same page as CZP11 but not confirmed as applying to Perfect Fit specifically — flagged, not resolved.** A separate "Top Fix Bracket for Standard Profile" is also given: code CZP186, colour Chrome, dimensions 30mm (width) × 7mm (height) × 22mm (depth), with its own blind-width-based quantity rule (up to 700mm: 2 brackets; 701–1300mm: 3 brackets; 1301–1500mm: 4 brackets — a width-based rule, unlike the drop-based rule for the side-frame fixing brackets above). This table sits directly beside the CZP11 (Perfect Fit Bottom Up) table on the source page, but CZP11's own row states its mounting is "Under-glass beading with brackets" (matching the side-frame bracket system above, not this one), and nothing on the page states that CZP186 is used for, or compatible with, the Perfect Fit configurations specifically. Recorded as found; not assumed to apply to this construction, and not assumed unrelated either. Source: p. 20.
+  - **Control handle.** Standard handle, supplied as standard: CZP128 (White), CZP129 (Black), CZP130 (Anthracite), CZP131 (Clear). Folding handle, additional surcharge: CZP151 (Clear only). Handle quantity: 1 per moving profile up to 1.2m width; 2 above 1.2m width. Handles are supplied as two pieces (a handle and an insert). Blinds can also be ordered with no handle. Source: p. 22.
+  - **Handle insert.** 6 colours: White, Tan, Brown, Grey, Anthracite, Black. "When ordering please specify handle insert position in the frame." Source: p. 23.
+  - **Profile-colour → frame-colour → frame-corner-colour mapping, recommended matches, not exact (per the source's own wording):**
+
+| Profile Colour | Frame Colour | Frame Corner Colour |
+|---|---|---|
+| Dark Oak | Brown | Brown |
+| Golden Oak | Golden Oak | Tan |
+| Oak | Golden Oak | Tan |
+| Mahogany | Mahogany | Brown |
+| White | White | White |
+| Cream | Beige | Beige |
+| Grey | White | White |
+| Anthracite | Anthracite | Anthracite |
+| Nobel | Anthracite | Anthracite |
+| Black | Black | Black |
+| Brown | Brown | Brown |
+| Walnut | Brown | Brown |
+
+    "Perfect Fit frame and pleated system profile colours will not be an exact match. When a beige Perfect Fit frame is required a white pleated system profile is recommended." "These are the recommended Perfect Fit colour matches and will not be an exact match for the Cruze pleated/cellular profiles, customers' can select any Perfect Fit colour as part of the ordering process." Source: p. 24. **Resolves MCD-01B-08D Open Evidence Item 6:** the profile-colour name that document's neutral table could not confidently reproduce (recorded there only as "a further profile colour — name uncertain") is **Nobel** (RAL7022, per p. 2) — the same colour name already recorded for the unrelated FITtoFRAME system at §7.15. MCD-01B-08D.md is not edited to reflect this, per this task's scope restriction; recorded here only.
+  - **Cord/ladder colour rule — genuine scope inconsistency in the source, matching MCD-01B-08D DR-14 exactly.** Page 2's document-wide "Additional Information" list states: "Colour of the cords for Tensioned, Free-hanging and FITtoFRAME™ systems are chosen closest to the fabric colour" — three named system types, and Perfect Fit is not among them. Separately, page 28's footnote (under the Pleated fabric table) states, unscoped: "Cords will be chosen to the closest colour of the fabric, if no colour available white ladder will be used." Neither statement names Perfect Fit specifically, and neither is treated as controlling over the other — this is the same internal inconsistency MCD-01B-08D's own evidence found and recorded as DR-14/Open Evidence Item 8, now independently confirmed by direct visual reading of both source locations. Source: p. 2, p. 28.
+  - **Cell size and pleat size.** Cellular cell width: 25mm. Pleated pleat width: 20mm. (Document-wide figures, not scoped only to Perfect Fit, but applicable to it as stated — matching the pattern already recorded for pleat/cell size at §7.14.) Source: p. 2.
+  - **Fabric collections — Cellular ("Softcell Fabrics").** 8 collection names. Band structure and colour counts (colour names themselves not transcribed, per §7.16's grid transcription policy):
+
+| Collection | Price Band(s) | Colours in band | Fabric properties |
+|---|---|---|---|
+| Astoria | C | 5 | Dimout |
+| Artezen | C | 1 | Dimout, Voile |
+| Blenheim | D | 6 | Blockout |
+| Bowery | C | 7 | Dimout, Texture — **not available for CZP11/CZP12** (restricted to CZP04 & CZP06, both Tensioned, non-full-frame; matches the fabric exclusion already recorded at §7.15/MCD-01B-08D §4) |
+| Hudson | E | 8 | Dimout |
+| Lexington | A (Dimout) / B (Blockout) | 14 / 14 | Dimout; Blockout (same 14 base colourways, blockout variant) |
+| Soho | D | 6 | Blockout, FR (flame retardant, BS5867-2:2008 Type B) |
+| Tribeca | B (Dimout, Water Resistant) / C (Blockout, Water Resistant) | 5 / 5 | as shown |
+
+    All 100% Polyester. Widths: Astoria/Artezen/Bowery/Lexington/Tribeca 300cm (Tribeca 285cm); Blenheim 300cm; Hudson 250cm; Soho 285cm. Source: p. 25–26.
+  - **Fabric collections — Pleated.** 36 collection names, one price band each (A–E), colour counts per collection (colour names themselves not transcribed):
+
+| Collection | Colours | Band | Collection | Colours | Band |
+|---|---|---|---|---|---|
+| Addison | 3 | D | Mako | 2 | C |
+| Akona | 1 | C | Mirabella | 7 | B |
+| Aliz | 2 | B | Mirari | 1 | B |
+| Amos | 1 | E | Mythic | 3 | B |
+| Arlo | 2 | B | Noto | 2 | C |
+| Aspinal | 1 | B | Nouveau | 2 | A |
+| Astral | 3 | D | Oketo | 2 | B |
+| Bahama | 1 | C | Paradise | 1 | B |
+| Bask | 3 | D | Scandi | 5 | A |
+| Cecily | 2 | D | Sylvan | 2 | C |
+| Equa | 1 | B | Talia | 2 | C |
+| Essence | 2 | C | Tropez | 2 | E |
+| Evissa | 3 | C | Vista | 1 | C |
+| Fusion | 1 | B | Xyla | 1 | B |
+| Glantus | 1 | A |  |  |  |
+| Hamilton | 4 | C |  |  |  |
+| Hovia | 1 | C |  |  |  |
+| Hypno | 8 | B |  |  |  |
+| Kana | 7 | A |  |  |  |
+| Kimora | 1 | C |  |  |  |
+| Loxton | 2 | B |  |  |  |
+| Luqa | 2 | C |  |  |  |
+
+    All 100% Polyester. Widths vary by collection, 180–240cm. Fabric properties per collection are Dimout by default, with Blockout, Pearlised, and Textured stated for specific collections as shown in the source (not transcribed cell-by-cell here). Source: p. 27–28.
+- **Pricing.** No monetary (£) figures are stated anywhere in the Perfect Fit section (p. 19–24) or the fabric tables (p. 2, p. 25–28) — checked directly, none found. The fabric Price Band letters (A–E) recorded above are confirmed as given; the actual monetary value of each band is **Not Provided** in this source. No blind-body price grid (width/drop-indexed pricing, of the kind recorded for Decora's Day & Night product at §7.16) exists anywhere in SPEC70 for CZP11/CZP12. Recorded as **Not Provided**; Decora's trade price book (a separate, not-yet-supplied document) is presumed to be the actual pricing source, per this project's standing practice — no figure is invented here.
+- **Not Provided, not inferred:**
+  - Motorisation: not mentioned anywhere in the Perfect Fit section or fabric tables. Not inferred from any other Decora system's motorisation evidence (including §7.15's FITtoFRAME, a different system).
+  - Packer/window-packing-piece availability and colours for this Decora system: not mentioned anywhere in the source pages read. This construction's other route (Route 2, per MCD-01B-08D §9.5) does evidence a window packing piece — not borrowed or assumed here, since that is a different, independently-evidenced route.
+  - Anything else the source pages read do not state (e.g. per-route/per-code eligibility beyond what is given above, lead time, warranty).
+- **Open items:**
+  - **Beige frame colour — confirmed operational, differs from the Roller Perfect Fit frame list.** Beige is listed in SPEC70's Perfect Fit frame colours (p. 19, above). Nazmil Ghany confirmed Beige as operational for this construction on 16 Sep 2026. This differs from Decora's Perfect Fit Roller frame list already recorded via MCD-01B-08C (6 colours, no Beige) — the same cross-document difference MCD-01B-08D records as DR-15 (open). Not resolved here; MCD-01B-08C is not modified.
+  - **Cord/ladder scope inconsistency (matches MCD-01B-08D DR-14).** See "Cord/ladder colour rule" above — recorded, not resolved.
+  - **Top-fix bracket (CZP186) applicability to Perfect Fit — internally ambiguous, not resolved.** See the bracket finding above — the source places this table beside CZP11 but does not state it applies to Perfect Fit, and CZP11's own stated mounting method is the side-frame beading-bracket system, not this one. Flagged, not resolved.
+  - **Route 2's true technical minimum drop, and Route 2 evidence generally, are unaffected by this record** — this record is Route 1 evidence only, per MCD-01B-08D's own Route 1/Route 2 separation; no Route 2 fact is stated or implied here.
+- **Evidence:** Direct visual reading of `SPEC70 Cruze Pleated Cellular Specification - Issue V7 - 17.06.2026.pdf` as rendered page images (not text extraction) — p. 2 (system overview), p. 19–24 (Perfect Fit system section), p. 25–28 (Softcell and Pleated fabric tables).
+- **Source References:** `SPEC70 Cruze Pleated Cellular Specification - Issue V7 - 17.06.2026.pdf`, pages 2, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28 (cited per fact above). The full per-mm/per-size grid, where one exists (none found for CZP11/CZP12 pricing in this source), and the full fabric colour lists are authoritative in the source document itself and should be ingested from it directly, not retyped from this record, per §7.16's grid transcription policy.
+- **Validation Status:** Confirmed (system identity and configuration mapping; size limits; profile dimensions; frame material, colours, and clearance; side-frame fixing-hole and bracket-quantity rules; fixing bracket sizes, colours, and product codes; control handle codes, quantity rule, and no-handle option; handle insert colours and ordering requirement; profile-frame-corner colour mapping including the "Nobel" identification; cell/pleat size; fabric collection names, band structure, and colour counts for both Cellular and Pleated); Not Provided (all pricing; motorisation; packer/window-packing-piece availability and colours); Flagged, not resolved (cord/ladder colour-matching scope inconsistency, matching MCD-01B-08D DR-14; the top-fix bracket CZP186's applicability to Perfect Fit; Beige frame colour's difference from the Roller Perfect Fit list, matching MCD-01B-08D DR-15 — both open on MCD-01B-08D's own side, not resolved by this record).
+- **Revision History:**
+  - 17 Sep 2026 — record created, raised by Nazmil Ghany, from `SPEC70 Cruze Pleated Cellular Specification - Issue V7 - 17.06.2026.pdf` to serve MCD-01B-08D v1.1 as its Route 1 supplier evidence. MCD-01B-08D.md and MCD-00B-Product-Register.md not modified.
+
 ## 8. Decision Register
 
 Maintained in accordance with MCD-00A conventions as established in MCD-01B-01 §17 and MCD-01B-02 §23 (MCD-00A itself was not available in the repository at time of writing — see the row below). Format: Date | Decision | Reasoning | Raised By.
