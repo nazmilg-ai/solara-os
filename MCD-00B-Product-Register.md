@@ -1,7 +1,7 @@
 Document ID: MCD-00B
 Document Title: Solara OS Product Specification Register
 Status: Living Document — Updated per change
-Last Updated: 16 September 2026
+Last Updated: 17 September 2026
 
 **Purpose:** This is the single source of truth for MCD-01A/MCD-01B document numbers, statuses, and the construction-group hierarchy — it supersedes any prose status report for that purpose. It sits alongside MCD-00/MCD-00A conceptually but, unlike the frozen MCD-00A governance convention, is a live tracking document expected to change every time a document's status, number, or hierarchy position changes.
 
@@ -67,10 +67,11 @@ No other Side-Guide Window-Mounted children are currently planned or referenced 
 | Supplier company name, internal construction-system reference, advisor-facing display name, and verified profile/colour/handle facts disclosed in MCD-01B-08B's research evidence would resolve MCD-04 §7.15's standing "Not Provided" supplier-company field | MCD-01B-08B (source), MCD-04 (target) | Open — flagged in MCD-01B-08B DR-09 (treatment confirmed by Nazmil Ghany, 26 Jul 2026, as requiring its own separate MCD-04 enrichment task); MCD-04 not modified |
 | MCD-01B-08B exists as a substantial partially-ratified working draft but sits unmerged on its own branch, with no PR ever opened — not visible from `main` alone | MCD-01B-08, MCD-01B-08A (its declared sibling/family context), MCD-01B-08B | Open — no PR exists to track promotion or merge; status only discoverable by checking the branch directly |
 | Route 1 frame-colour list differs between Full-Frame Bead-Mounted constructions: 7 colours including Beige for Pleated & Cellular, 6 colours without Beige for Roller | MCD-01B-08D (DR-15, source of the finding), MCD-01B-08C (not modified) | Open for MCD-01B-08C only — Beige confirmed operational for MCD-01B-08D on both routes (16 Sep 2026); whether MCD-01B-08C's Route 1 Roller list is complete remains unconfirmed; MCD-01B-08C not modified |
-| Day & Night Open-cassette drop: MCD-04 §7.16 still flags its 2,300 mm pricing grid as conflicting with MCD-01B-09 §7.1's 1,900 mm Open-cassette maximum; the business resolution is that the 2,300 mm figure is Closed-cassette data mislabelled as Open | MCD-04, MCD-01B-09 | Open — MCD-01B-09 is correct; MCD-04 not yet updated (found in the MCD-01B-08D pre-flight check, 16 Sep 2026) |
-| Day & Night child-safety device: MCD-01B-09 records that the same child-safety device applies regardless of fascia system; MCD-04 §7.16 records a single device from one source only and does not state this decision | MCD-04, MCD-01B-09 | Open — MCD-04 not yet updated (found in the MCD-01B-08D pre-flight check, 16 Sep 2026) |
+| Day & Night Open-cassette drop: MCD-04 §7.16 still flags its 2,300 mm pricing grid as conflicting with MCD-01B-09 §7.1's 1,900 mm Open-cassette maximum; the business resolution is that the 2,300 mm figure is Closed-cassette data mislabelled as Open | MCD-04, MCD-01B-09 | Open — for pricing-row re-attribution only: MCD-04 §7.16 was corrected 17 Sep 2026 (PR #27); MCD-01B-09 was correct throughout; the affected Open-configuration pricing rows above 1,900 mm drop are flagged in MCD-04 but not yet re-attributed, which remains a separate task |
+| Day & Night child-safety device: MCD-01B-09 records that the same child-safety device applies regardless of fascia system; MCD-04 §7.16 records a single device from one source only and does not state this decision | MCD-04, MCD-01B-09 | Closed — MCD-04 §7.16 now cross-references MCD-01B-09 §7.2.3 as of 17 Sep 2026 (PR #27) |
 | MCD-00B was not updated in the same commit as MCD-01B-08D's promotion and merge (PR #24), contrary to this register's own "How to keep this current" rule; corrected by a separate follow-up commit | MCD-00B, MCD-01B-08D | Closed — register brought up to date 16 Sep 2026; process note recorded for future promotions |
 | Centre-Meet movement style (two fabric sections meeting within the glass) is defined in MCD-01B-08D §5.4 (Route 2 only) but not in the base Pleated & Cellular specification | MCD-01B-08D (source, DR-18), MCD-01B-07 (not modified) | Open — MCD-01B-07 may need a separate controlled update to define it as a base movement style |
+| MCD-04 §7.21 and §7.22 now supply MCD-01B-08D's Route 1 (Decora) and Route 2 (Beverley) supplier records | MCD-04, MCD-01B-08D | Closed — both records added 17 September 2026 |
 
 ---
 
